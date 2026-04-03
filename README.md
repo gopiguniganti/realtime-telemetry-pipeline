@@ -1,42 +1,58 @@
 # Realtime Telemetry Pipeline
 
-A personal data engineering project that demonstrates how to ingest, process, and visualize live telemetry data using modern tools and cloud-friendly patterns.
+A personal data engineering project that demonstrates how to ingest, process, and visualize live telemetry data using a simple local stack.
 
-## What this project covers
+## Why this project exists
 
-- ingesting streaming or periodic telemetry events
-- storing time-series data for analysis
-- exposing dashboards for operational visibility
-- applying practical data engineering patterns such as batching, retries, and monitoring
+This repository is meant to showcase practical data engineering habits for building a small but realistic telemetry pipeline:
 
-## Suggested stack
+- collecting data from a source
+- sending it to a time-series store
+- visualizing it through dashboards
+- packaging the setup with Docker for easy local runs
 
-- Python for ingestion and processing
-- InfluxDB or TimescaleDB for time-series storage
+## Tech stack
+
+- Python for the ingestion worker
+- InfluxDB for time-series storage
 - Grafana for visualization
-- Docker for local deployment
+- Docker Compose for local orchestration
 
 ## Repository structure
 
 ```text
 telemetry-pipeline/
-├── docker/
-├── docs/
-├── scripts/
+├── docker/                  # Docker Compose and runtime configuration
+├── docs/                    # architecture notes and dashboard assets
+├── scripts/                 # ingestion and helper scripts
+├── requirements.txt         # Python dependencies
 └── README.md
 ```
 
-## Roadmap
-
-- [ ] add ingestion worker
-- [ ] add storage layer
-- [ ] add dashboard configuration
-- [ ] document deployment steps
-
-## Getting started
+## Local setup
 
 ```bash
-git clone https://github.com/<your-username>/realtime-telemetry-pipeline.git
+git clone https://github.com/gopiguniganti/realtime-telemetry-pipeline.git
 cd realtime-telemetry-pipeline
 docker compose -f docker/docker-compose.yml up -d
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+./scripts/run.sh
 ```
+
+## What’s included
+
+- a starter Docker stack for InfluxDB and Grafana
+- a Python ingestion example that writes points to InfluxDB
+- a dashboard template file for future Grafana work
+- a run script to simplify local execution
+
+## Roadmap
+
+- [x] initial project scaffold
+- [x] add ingestion script
+- [x] add dashboard template
+- [ ] connect Grafana with a real dashboard
+- [ ] add sample data model and documentation
+- [ ] add CI checks and deployment notes
