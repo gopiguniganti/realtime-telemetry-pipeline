@@ -46,13 +46,14 @@ pip install -r requirements.txt
 - a starter Docker stack for InfluxDB and Grafana
 - a Python ingestion example that writes points to InfluxDB
 - a dashboard template file for future Grafana work
-- a run script to simplify local execution
+- a Makefile for setup and run steps
+- a short demo workflow to explain the end-to-end process
 
 ## Roadmap
 
 - [x] initial project scaffold
 - [x] add ingestion script
 - [x] add dashboard template
+- [x] add demo workflow and local automation
 - [ ] connect Grafana with a real dashboard
-- [ ] add sample data model and documentation
 - [ ] add CI checks and deployment notes
