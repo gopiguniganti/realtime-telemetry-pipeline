@@ -1,19 +1,20 @@
 # Realtime Telemetry Pipeline
 
-A personal data engineering project that demonstrates how to ingest, process, and visualize live telemetry data using a simple local stack.
+A personal data engineering project that demonstrates how to ingest, process, and visualize telemetry data using a Dockerized local stack. The repository is designed to look like a realistic, portfolio-ready example of a small but practical data pipeline.
 
 ## Why this project exists
 
-This repository is meant to showcase practical data engineering habits for building a small but realistic telemetry pipeline:
+This project showcases common data engineering patterns such as:
 
 - collecting data from a source
-- sending it to a time-series store
+- sending it into a time-series store
 - visualizing it through dashboards
-- packaging the setup with Docker for easy local runs
+- packaging the workflow for local repeatability
+- extending the design toward vehicle telemetry with an OBD2 workflow
 
 ## Tech stack
 
-- Python for the ingestion worker
+- Python for the ingestion workers
 - InfluxDB for time-series storage
 - Grafana for visualization
 - Docker Compose for local orchestration
@@ -23,9 +24,10 @@ This repository is meant to showcase practical data engineering habits for build
 ```text
 telemetry-pipeline/
 ├── docker/                  # Docker Compose and runtime configuration
-├── docs/                    # architecture notes and dashboard assets
+├── docs/                    # architecture notes, workflow docs, and setup guides
 ├── scripts/                 # ingestion and helper scripts
 ├── requirements.txt         # Python dependencies
+├── Makefile                 # local setup and run shortcuts
 └── README.md
 ```
 
@@ -45,9 +47,20 @@ pip install -r requirements.txt
 
 - a starter Docker stack for InfluxDB and Grafana
 - a Python ingestion example that writes points to InfluxDB
+- a placeholder OBD2 collector script for vehicle telemetry experiments
 - a dashboard template file for future Grafana work
 - a Makefile for setup and run steps
-- a short demo workflow to explain the end-to-end process
+- workflow notes for local demo usage
+
+## OBD2 workflow
+
+This repository also includes a simple OBD2-oriented path for future real-world vehicle telemetry integration:
+
+- connect an ELM327-compatible adapter to the vehicle
+- confirm data access with a mobile OBD app
+- replace the placeholder generator with real PID reads
+- publish those readings into InfluxDB
+- visualize them in Grafana
 
 ## Roadmap
 
@@ -55,5 +68,6 @@ pip install -r requirements.txt
 - [x] add ingestion script
 - [x] add dashboard template
 - [x] add demo workflow and local automation
+- [x] add OBD2 integration scaffold
 - [ ] connect Grafana with a real dashboard
 - [ ] add CI checks and deployment notes
