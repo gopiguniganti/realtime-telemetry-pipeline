@@ -62,6 +62,10 @@ This repository also includes a simple OBD2-oriented path for future real-world 
 - publish those readings into InfluxDB
 - visualize them in Grafana
 
+## Architecture
+
+A simple end-to-end flow for the system is documented in [docs/architecture-diagram.md](docs/architecture-diagram.md).
+
 ## Roadmap
 
 - [x] initial project scaffold
