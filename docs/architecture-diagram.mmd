@@ -1,0 +1,5 @@
+flowchart LR
+    OBD[OBD2 Adapter] --> Collector[Python Collector]
+    Collector --> Influx[InfluxDB]
+    Influx --> Grafana[Grafana Dashboard]
+    Grafana --> User[User]
