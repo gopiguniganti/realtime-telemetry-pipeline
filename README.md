@@ -1,6 +1,6 @@
 # Realtime Telemetry Pipeline
 
-This is a personal project I built to explore telemetry ingestion, storage, and visualization with a small local stack. It brings together Python, InfluxDB, Grafana, and Docker to create a simple workflow for collecting and reviewing time-series data.
+I built this project to explore telemetry ingestion, storage, and visualization with a small local stack. It brings together Python, InfluxDB, Grafana, and Docker to create a simple workflow for collecting and reviewing time-series data.
 
 ## What I built
 
